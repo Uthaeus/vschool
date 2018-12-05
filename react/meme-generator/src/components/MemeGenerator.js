@@ -19,9 +19,34 @@ class MemeGenerator extends Component {
             });
     }
 
+    handleChange = (event) => {
+        const {name, value} = event.target
+        this.setState({
+            [name]: value 
+        })
+    }
+
     render() {
         return (
-            <h1>text in generator</h1>
+            <div>
+                <form className="meme-form">
+                    <input 
+                        name="topText" 
+                        type="text" 
+                        placeholder="Top Text" 
+                        value={this.state.topText}
+                        onChange={this.handleChange} 
+                    />
+                    <input 
+                        name="bottomText" 
+                        type="text" 
+                        placeholder="Bottom Text" 
+                        value={this.state.bottomText}
+                        onChange={this.handleChange} 
+                    />
+                    <button>Gen</button>
+                </form>
+            </div>
         );
     }
 }
